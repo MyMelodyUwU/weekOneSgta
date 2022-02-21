@@ -1,0 +1,74 @@
+---
+title: "notes"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(ggplot2)
+
+#library("tidyverse")
+#ibrary("devtools")
+#library("glue")
+#library("dplyr")
+#library("stringr")
+#library("ggplot2")
+#library("knitr")
+#library("ggrepel")
+#library("patchwork")
+#library("janitor")
+```
+
+## Intro. 
+
+Using the mpg data set, we can get a start to fucking up daddy fung. Make sure u get all the releveant libraries coz ur gonna need to be using them. 
+
+
+## ytb
+
+to load up the data, just write the name of the data set in the console, it'll give a fat tibble table. if u dunno anything, just put a ? mark inf front and you get a definition. 
+```{r}
+mpg
+```
+
+```{r carData}
+library(tidyverse)
+library(ggplot2)
+
+carData <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
+  geom_point(mapping = aes(color = class, shape = class)) +
+  geom_smooth(data = filter(mpg, class == "subcompact"), se = FALSE)
+
+carData
+
+```
+
+This carData graph uses data mpg, which also has a mapping argument, this makes the data "Mapped" to certain properties. In this case, the x and y axis is displ and hwy, this is easily exchanged for other shit. geom point is the dots on the plot, which can be any shape / color depending on how you set it. You can either go LGBTQ+ or set it to a random variable. Up to you. Geom Smooth is the line given, which we can use the filter function to find and make a line of best fit for the shit that we want. In this case, we have to declare the data used and what category that we want. 
+
+idk what the fuck se is lmao
+
+## Facuet Failure. 
+
+Facet is a way to seperate the data into different graphs so its not clunky as fuck. Facet_wrap is to set how many rows int he data. We can also put same x and y variables in the data to save space. 
+
+```{r pressure, echo=FALSE}
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_wrap(~ class, nrow = 2)
+
+```
+
+```{r}
+
+ggplot(data = mpg) + 
+  geom_point(mapping = aes(x = displ, y = hwy)) + 
+  facet_grid(drv ~ cyl)
+
+```
+
+What does facet wrap do? fuck use this ?
+but, it wraps your data into different sets. Making the shit look pretty. 
+
+We'll keep it there for the first week, Lyndal. Fuck you. 
+
