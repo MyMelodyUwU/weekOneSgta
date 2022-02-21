@@ -10,26 +10,38 @@ library("patchwork")
 library("janitor")
 
 
-myData <- read.dat("pulse.dat")
+dat = read.table("pulse.dat", header=TRUE)
 
-ggplot(data = mpg) +
-geom_point(mapping = aes(x = displ, y = hwy, color = class))
+attach(dat)
 
-ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy), color = "blue")
+stem(dat$pulse)
 
-ggplot(data = mpg) +
-  geom_point(mapping = aes(x = displ, y = hwy), color = "red") +
-  fbob <- ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
-  geom_point(mapping = aes(color = class)) +
-  geom_smooth(data = filter(mpg, class == "subcompact"), se = FALSE)
-bobacet_wrap(~ class, nrow = 2)
+hist(dat$pulse, main = "Student Pulse rates (bpm)")
 
-ggplot(data = mpg, mapping = aes(x = displ, y = hwy)) +
-  geom_point(mapping = aes(color = class)) +
-  geom_smooth()
+boxplot(dat$pulse, horizontal = TRUE,
+        main = "Student Pulse rates (bpm)")
 
-bob <- ggplot(data = mpg, mapping = aes(x = cyl, y = cty)) +
-  geom_point(mapping = aes(color = class)) +
-  geom_smooth(data = filter(mpg, class == "subcompact"), se = FALSE)
-bob
+summary(dat$pulse)
+
+sd(dat$pulse)
+
+mean(dat$pulse)
+
+dat1 = read.table("encoder.txt", header = TRUE)
+str(dat1) # Look at the data object
+dat1 # Look at all observations
+head(dat1) # display first six observations
+summary(dat1$time) # obtain descriptive statistics
+t.test(dat1$time, mu = 19.25) # Conduct the test
+
+dat1 = read.table("encoder.txt", header = TRUE)
+str(dat1) # Look at the object
+
+summary(dat1$time) # obtain descriptive statistics
+
+t.test(dat1$time, mu = 19.25) # Conduct the test
+
+t.test(dat1$time, mu = 19.25, alternative = "less")
+
+t.test(dat1$time, mu = 19.25, alternative = "greater")
+
