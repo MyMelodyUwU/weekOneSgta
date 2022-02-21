@@ -8,6 +8,7 @@ library("knitr")
 library("ggrepel")
 library("patchwork")
 library("janitor")
+library("usethis")
 
 
 dat = read.table("pulse.dat", header=TRUE)
