@@ -1,0 +1,427 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{lmodern}
+\usepackage{ifxetex,ifluatex}
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math}
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
+\hypersetup{
+  pdftitle={notes},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+\urlstyle{same} % disable monospaced font for URLs
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.77,0.63,0.00}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifluatex
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+
+\title{notes}
+\author{}
+\date{\vspace{-2.5em}}
+
+\begin{document}
+\maketitle
+
+\hypertarget{intro.}{%
+\subsection{Intro.}\label{intro.}}
+
+Using the mpg data set, we can get a start to fucking up daddy fung.
+Make sure u get all the releveant libraries coz ur gonna need to be
+using them.
+
+\hypertarget{ytb}{%
+\subsection{ytb}\label{ytb}}
+
+to load up the data, just write the name of the data set in the console,
+it'll give a fat tibble table. if u dunno anything, just put a ? mark
+inf front and you get a definition.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{mpg}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 234 x 11
+##    manufacturer model      displ  year   cyl trans drv     cty   hwy fl    class
+##    <chr>        <chr>      <dbl> <int> <int> <chr> <chr> <int> <int> <chr> <chr>
+##  1 audi         a4           1.8  1999     4 auto~ f        18    29 p     comp~
+##  2 audi         a4           1.8  1999     4 manu~ f        21    29 p     comp~
+##  3 audi         a4           2    2008     4 manu~ f        20    31 p     comp~
+##  4 audi         a4           2    2008     4 auto~ f        21    30 p     comp~
+##  5 audi         a4           2.8  1999     6 auto~ f        16    26 p     comp~
+##  6 audi         a4           2.8  1999     6 manu~ f        18    26 p     comp~
+##  7 audi         a4           3.1  2008     6 auto~ f        18    27 p     comp~
+##  8 audi         a4 quattro   1.8  1999     4 manu~ 4        18    26 p     comp~
+##  9 audi         a4 quattro   1.8  1999     4 auto~ 4        16    25 p     comp~
+## 10 audi         a4 quattro   2    2008     4 manu~ 4        20    28 p     comp~
+## # ... with 224 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{library}\NormalTok{(tidyverse)}
+\FunctionTok{library}\NormalTok{(ggplot2)}
+
+\NormalTok{carData }\OtherTok{\textless{}{-}} \FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg, }\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ class, }\AttributeTok{shape =}\NormalTok{ class)) }\SpecialCharTok{+}
+  \FunctionTok{geom\_smooth}\NormalTok{(}\AttributeTok{data =} \FunctionTok{filter}\NormalTok{(mpg, class }\SpecialCharTok{==} \StringTok{"subcompact"}\NormalTok{), }\AttributeTok{se =} \ConstantTok{FALSE}\NormalTok{)}
+
+\NormalTok{carData}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## `geom_smooth()` using method = 'loess' and formula 'y ~ x'
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: The shape palette can deal with a maximum of 6 discrete values because
+## more than 6 becomes difficult to discriminate; you have 7. Consider
+## specifying shapes manually if you must have them.
+\end{verbatim}
+
+\begin{verbatim}
+## Warning: Removed 62 rows containing missing values (geom_point).
+\end{verbatim}
+
+\includegraphics{notesFirstWeek_files/figure-latex/carData-1.pdf}
+
+This carData graph uses data mpg, which also has a mapping argument,
+this makes the data ``Mapped'' to certain properties. In this case, the
+x and y axis is displ and hwy, this is easily exchanged for other shit.
+geom point is the dots on the plot, which can be any shape / color
+depending on how you set it. You can either go LGBTQ+ or set it to a
+random variable. Up to you. Geom Smooth is the line given, which we can
+use the filter function to find and make a line of best fit for the shit
+that we want. In this case, we have to declare the data used and what
+category that we want.
+
+idk what the fuck se is lmao
+
+\hypertarget{facuet-failure.}{%
+\subsection{Facuet Failure.}\label{facuet-failure.}}
+
+Facet is a way to seperate the data into different graphs so its not
+clunky as fuck. Facet\_wrap is to set how many rows int he data. We can
+also put same x and y variables in the data to save space.
+
+\includegraphics{notesFirstWeek_files/figure-latex/pressure-1.pdf}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(}\AttributeTok{data =}\NormalTok{ mpg) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_point}\NormalTok{(}\AttributeTok{mapping =} \FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ displ, }\AttributeTok{y =}\NormalTok{ hwy)) }\SpecialCharTok{+} 
+  \FunctionTok{facet\_grid}\NormalTok{(drv }\SpecialCharTok{\textasciitilde{}}\NormalTok{ cyl)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{notesFirstWeek_files/figure-latex/unnamed-chunk-2-1.pdf}
+
+What does facet wrap do? fuck use this ? but, it wraps your data into
+different sets. Making the shit look pretty.
+
+\hypertarget{stuff-from-the-lecture.}{%
+\subsection{Stuff from the lecture.}\label{stuff-from-the-lecture.}}
+
+Using the data given from thomas, we are given an encoder and a data of
+the pulses of some people.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat }\OtherTok{=} \FunctionTok{read.table}\NormalTok{(}\StringTok{"pulse.dat"}\NormalTok{, }\AttributeTok{header=}\ConstantTok{TRUE}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+Something that reads the data, a header is a logical variable which
+shows which working directory its in.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{attach}\NormalTok{(dat)}
+\end{Highlighting}
+\end{Shaded}
+
+We are making the data set saved, and easy to find.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{stem}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{pulse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+##   The decimal point is 1 digit(s) to the right of the |
+## 
+##   5 | 56
+##   6 | 12
+##   6 | 55689
+##   7 | 133
+##   7 | 667777
+##   8 | 01112
+##   8 | 556667
+##   9 | 3
+\end{verbatim}
+
+Creates a stem and leaf plot, from the sub category pulse, pulse has
+been ``Head'' From the data, which means we take a single column from
+the data set.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{pulse, }\AttributeTok{main =} \StringTok{"Student Pulse rates (bpm)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{notesFirstWeek_files/figure-latex/histogram-1.pdf}
+Creates a histogram of the data, which in this case is Pulse
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{boxplot}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{pulse, }\AttributeTok{horizontal =} \ConstantTok{TRUE}\NormalTok{,}
+        \AttributeTok{main =} \StringTok{"Student Pulse rates (bpm)"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{notesFirstWeek_files/figure-latex/boxPlot-1.pdf} Same
+shit, but a box plot.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{pulse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   55.00   68.25   77.00   75.23   81.75   93.00
+\end{verbatim}
+
+Gives General Information of the data set, which we can see from the
+results the Min, 1st Quartile, Median, Mean, 3rd Quartile and Max is
+showing
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{pulse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 9.729739
+\end{verbatim}
+
+Standard deviation.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{mean}\NormalTok{(dat}\SpecialCharTok{$}\NormalTok{pulse)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 75.23333
+\end{verbatim}
+
+Mean
+
+This is Thomas' T test, I have altered it slightly to automate to reject
+or do not reject the null hypothesis.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat1 }\OtherTok{=} \FunctionTok{read.table}\NormalTok{(}\StringTok{"encoder.txt"}\NormalTok{, }\AttributeTok{header =} \ConstantTok{TRUE}\NormalTok{)}
+\FunctionTok{str}\NormalTok{(dat1) }\CommentTok{\# Look at the data object}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 'data.frame':    10 obs. of  1 variable:
+##  $ time: num  18.3 17.9 19.1 16.8 18.9 17.4 19.6 18.3 19.6 16.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dat1 }\CommentTok{\# Look at all observations}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    time
+## 1  18.3
+## 2  17.9
+## 3  19.1
+## 4  16.8
+## 5  18.9
+## 6  17.4
+## 7  19.6
+## 8  18.3
+## 9  19.6
+## 10 16.3
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(dat1) }\CommentTok{\# display first six observations}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   time
+## 1 18.3
+## 2 17.9
+## 3 19.1
+## 4 16.8
+## 5 18.9
+## 6 17.4
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{summary}\NormalTok{(dat1}\SpecialCharTok{$}\NormalTok{time) }\CommentTok{\# obtain descriptive statistics}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##   16.30   17.52   18.30   18.22   19.05   19.60
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sd}\NormalTok{(dat1}\SpecialCharTok{$}\NormalTok{time)}\SpecialCharTok{\^{}}\DecValTok{2} \CommentTok{\#Find the SD.}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 1.281778
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{pValue }\OtherTok{\textless{}{-}} \FunctionTok{t.test}\NormalTok{(dat1}\SpecialCharTok{$}\NormalTok{time, }\AttributeTok{mu =} \FloatTok{19.25}\NormalTok{)}\SpecialCharTok{$}\NormalTok{p.value}
+\CommentTok{\# ifelse(bob \textless{} 0.05 \textless{}{-}yes = print("Reject"), no = print("Do not reject"))}
+\ControlFlowTok{if}\NormalTok{(pValue }\SpecialCharTok{\textless{}} \FloatTok{0.05}\NormalTok{) \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Reject"}\NormalTok{)}
+\NormalTok{\} }\ControlFlowTok{else}\NormalTok{ \{}
+  \FunctionTok{print}\NormalTok{(}\StringTok{"Do Not Reject"}\NormalTok{)}
+\NormalTok{\}}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] "Reject"
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# t.test(dat1$time, mu = 19.25, alternative = "less")}
+
+\CommentTok{\# t.test(dat1$time, mu = 19.25, alternative = "greater")}
+\end{Highlighting}
+\end{Shaded}
+
+Okay, we didn't know why the fuck mu is 19.25, mu is the mean of the
+POPULATION When we find the descriptive statistics of the data, we
+realize the mean is 18.22, lol what the fuck right? No, this is coz this
+is this the mean of the SAMPLE
+
+When we are constructing our hypothesis, we will need to create a Null
+Hypothesis and a Alternative Hypothsis.
+
+In this case, the sample mean is NOT 19.25, but 18.22 from our t test.
+Therefore, We reject the null hypothesis AND the sample mean was
+significantly less than the population
+
+Anyway, thats all the notes for this week. Thomas, fuck you.
+
+\end{document}

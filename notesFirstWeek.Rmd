@@ -1,6 +1,8 @@
 ---
 title: "notes"
-output: html_document
+output:
+  pdf_document: default
+  html_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -72,7 +74,7 @@ but, it wraps your data into different sets. Making the shit look pretty.
 
 ## Stuff from the lecture.
 
-Using the data given from thomas, we are given an encoder and a data of the pulses of some people. 
+Using the data given from Thomas, we are given an encoder and a data of the pulses of some people. 
 
 ```{r, pulseData}
 dat = read.table("pulse.dat", header=TRUE)
@@ -119,6 +121,7 @@ Mean
 
 This is Thomas' T test, I have altered it slightly to automate to reject or do 
 not reject the null hypothesis. 
+
 ```{r, tTest}
 dat1 = read.table("encoder.txt", header = TRUE)
 str(dat1) # Look at the data object
