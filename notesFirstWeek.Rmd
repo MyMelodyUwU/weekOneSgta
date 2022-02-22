@@ -20,6 +20,8 @@ library(ggplot2)
 #library("ggrepel")
 #library("patchwork")
 #library("janitor")
+#library("kableExtra")
+#library("bibtex")
 ```
 
 ## Intro. 
@@ -136,7 +138,7 @@ if(pValue < 0.05) {
 } else {
   print("Do Not Reject")
 }
-
+# ifelse(pValue<0.05, print("Reject"), print("Don't reject"))
 # t.test(dat1$time, mu = 19.25, alternative = "less")
 
 # t.test(dat1$time, mu = 19.25, alternative = "greater")
@@ -157,4 +159,5 @@ population
 ![**Figure here shows when to reject or do not reject.**](whenToReject.png)
 
 Anyway, thats all the notes for this week. Thomas, fuck you. 
+
 

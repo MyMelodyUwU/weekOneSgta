@@ -48,12 +48,13 @@ head(dat1) # display first six observations
 summary(dat1$time) # obtain descriptive statistics
 sd(dat1$time)^2 #Find the SD.
 pValue <- t.test(dat1$time, mu = 19.25)$p.value
-# ifelse(bob < 0.05 <-yes = print("Reject"), no = print("Do not reject"))
-if(pValue < 0.05) {
-  print("Reject")
-} else {
-  print("Do Not Reject")
-}
+#
+#if(pValue < 0.05) {
+#  print("Reject")
+#} else {
+#  print("Do Not Reject")
+#}
+ifelse(pValue<0.05, print("Reject"), print("Don't reject"))
 t.test(dat1$time, mu = 19.25, alternative = "less")
 
 t.test(dat1$time, mu = 19.25, alternative = "greater")
