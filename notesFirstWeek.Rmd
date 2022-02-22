@@ -1,8 +1,8 @@
 ---
 title: "notes"
 output:
-  pdf_document: default
   html_document: default
+  pdf_document: default
 ---
 
 ```{r setup, include=FALSE}
@@ -154,4 +154,7 @@ In this case, the sample mean is NOT 19.25, but 18.22 from our t test. Therefore
 We reject the null hypothesis AND the sample mean was significantly less than the
 population
 
+![**Figure here shows when to reject or do not reject.**](whenToReject.png)
+
 Anyway, thats all the notes for this week. Thomas, fuck you. 
+

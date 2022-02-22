@@ -69,3 +69,6 @@ t.test(dat1$time, mu = 19.25, alternative = "greater")
 # In this case, the sample mean is NOT 19.25, but 18.22 from our t test. Therefore,
 # We reject the null hypothesis AND the sample mean was significantly less than the
 # population
+
+
+
