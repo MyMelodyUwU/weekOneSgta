@@ -9,6 +9,8 @@ library("ggrepel")
 library("patchwork")
 library("janitor")
 library("usethis")
+library("roxygen2")
+library("testthat")
 
 dat = read.table("pulse.dat", header=TRUE)
 # Something that reads the data, a header is a logical variable which shows
@@ -70,6 +72,3 @@ t.test(dat1$time, mu = 19.25, alternative = "greater")
 # In this case, the sample mean is NOT 19.25, but 18.22 from our t test. Therefore,
 # We reject the null hypothesis AND the sample mean was significantly less than the
 # population
-
-
-
